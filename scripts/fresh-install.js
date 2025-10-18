@@ -22,21 +22,21 @@ try {
     console.log('ℹ️  No se encontró node_modules');
   }
 
-  const lockFilePath = path.join(process.cwd(), 'package-lock.json');
+  const lockFilePath = path.join(process.cwd(), 'pnpm-lock.yaml');
   if (fs.existsSync(lockFilePath)) {
-    console.log('🗑️  Eliminando package-lock.json...');
+    console.log('🗑️  Eliminando pnpm-lock.yaml...');
     if (isWindows) {
       execSync(`del "${lockFilePath}"`, { stdio: 'inherit', shell: true });
     } else {
       fs.unlinkSync(lockFilePath);
     }
-    console.log('✅ package-lock.json eliminado');
+    console.log('✅ pnpm-lock.yaml eliminado');
   } else {
-    console.log('ℹ️  No se encontró package-lock.json');
+    console.log('ℹ️  No se encontró pnpm-lock.yaml');
   }
 
   console.log('📦 Instalando dependencias...');
-  execSync('npm install', { stdio: 'inherit', shell: isWindows });
+  execSync('pnpm install', { stdio: 'inherit', shell: isWindows });
 
   console.log('✨ ¡Proceso completado con éxito!');
 } catch (error) {
