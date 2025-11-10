@@ -12,7 +12,6 @@ yarn.lock
 # Config y entorno
 .env
 .env.*
-.vscode
 .idea
 
 # Logs / temporales
